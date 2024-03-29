@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #ime{
+    width:500px;
+    height:700px;
+    margin-left: 60px;
+  }
+  .got{
+      width:900px;
+      height:650px;
+      background-color:aquamarine;
+      margin-left: 600px;
+      margin-top: -700px;
+  }
+  #imgg{
+    width:150px;
+     position: absolute;
+     margin-left: 650px;
+     margin-top: 30px;
+  }
+</style>
+
+<body>
+
+
+  <div>
+    <div>
+      <div >
+        <img src="" alt="" id="ime">
+      </div>
+      
+      <div class="got">
+
+        <img src="" alt="" id="imgg">
+        <h2 id="one"></h2>
+        <h2 id="two"></h2>
+        <h2 id="three"></h2>
+        <h2 id="four"></h2>
+        <h2 id="five"></h2>
+        <h2 ></h2>
+        <h2></h2>
+        <h2 ></h2>
+        <h2></h2>
+      </div>
+    </div>
+  </div>
+  <div id="grand">
+
+  </div>
+  <script>
+
+    var b = localStorage.getItem("prashanth")
+    // console.log(b)
+    var pg = JSON.parse(b);
+
+console.log(pg);
+console.log(pg['title'])
+
+
+
+
+var main=document.getElementsByTagName("img")
+main[0].setAttribute("src",pg['big_image'])
+var main=document.getElementsByTagName("img")
+main[1].setAttribute("src",pg['big_image'])
+var child0=document.getElementsByTagName("h2")
+child0[0].innerHTML="Title :"+pg['title']
+var child0=document.getElementsByTagName("h2")
+child0[1].innerHTML="genre :"+pg['genre']
+var child0=document.getElementsByTagName("h2")
+child0[2].innerHTML="Year :"+pg['year']
+var child0=document.getElementsByTagName("h2")
+child0[3].innerHTML="Rank :"+pg['rank']
+var child0=document.getElementsByTagName("h2")
+child0[4].innerHTML="imdbid :"+pg['imdbid']
+var child0=document.getElementsByTagName("h2")
+child0[5].innerHTML="imdb_link :"+pg['imdb_link']
+var child0=document.getElementsByTagName("h2")
+child0[6].innerHTML="description :"+pg['description']
+var child0=document.getElementsByTagName("h2")
+child0[7].innerHTML="Rating :"+pg['rating']
+
+
+
+
+    
+
+      // var ime = pg['big_image'];
+      // var ide = pg['title'];
+      // var ranke = pg['year'];
+      // var yeare = pg['rank'];
+      // var desce = pg['description'];
+      // console.log(ide)
+      // var grand = document.getElementById("grand")
+      // var diva = document.createElement("div");
+      // var id = document.createElement("h4");
+      // var rank = document.createElement("h4");
+      // var imge = document.createElement("img");
+      // var year = document.createElement("h4");
+      // var desc = document.createElement("h4");
+      // var butt = document.createElement("h4");
+      // id.innerText = "Tittle : " + ide;
+      // rank.innerText = "Year : " + ranke;
+      // year.innerText = "Rank : " + yeare;
+      // desc.innerText = "Description : " + desce;
+      // imge.setAttribute("src", ime);
+      // imge.setAttribute("style", "margin-left:110px;margin-top:20px;")
+      // butt.innerHTML = "id :"+pg['id']
+    
+      // diva.appendChild(imge)
+      // diva.appendChild(id)
+      // diva.appendChild(rank);
+      // diva.appendChild(year);
+      // diva.appendChild(desc);
+      // diva.appendChild(butt);
+      // grand.appendChild(diva)
+
+
+
+
+    // }
+  </script>
+</body>
+
+</html>
