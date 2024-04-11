@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .king {
+        margin-top: 100px;
+        opacity: 0.8;
+    }
+
+    span {
+        display: none;
+    }
+
+    .main {
+        width: 300px;
+        height: 400px;
+        background-color: rgb(19, 18, 18);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10%;
+    }
+
+    .form input {
+        width: 200px;
+        height: 30px;
+    }
+
+    .sign {
+        margin-left: 110px;
+        margin-top: -116px;
+
+
+    }
+    body{
+        background-image: url("https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <center>
+        <div class="king">
+            <div class="main">
+                <form class="form">
+                    <input type="text" placeholder="username" required>
+                    <br>
+                    <br>
+                    <input type="email" placeholder="email" required>
+                    <br>
+                    <br>
+                    <input type="password" placeholder="password" required>
+                    <br>
+                    <br>
+                    <input type="password" placeholder="re-enter password" required class="one">
+                    <br>
+                    <span>Re-enter properly</span>
+                    <br>
+                    <br>
+                    <input type="submit" style="width:80px;margin-right: 110px;">
+
+                </form>
+            </div>
+            <br>
+            <div class="sign">
+                <button style="width:80px;height:30px"><b>
+                        <a href="./signin.html">Sign in</a>
+                </button>
+            </div>
+        </div>
+    </center>
+    <script>
+        var d = document.forms;
+        console.log(d[0])
+
+        var arr = [];
+        d[0].addEventListener("submit", (e) => {
+            e.preventDefault();
+            obj = {
+                user: e.target[0].value,
+                email: e.target[1].value,
+                pass: e.target[2].value,
+                passe: e.target[3].value
+            }
+            if (e.target[2].value !== e.target[3].value) {
+                var key = document.getElementsByTagName("span");
+                key[0].style.display = "inline";
+                key[0].style.color = "red";
+
+
+
+            }
+            console.log(obj)
+            arr.push(obj)
+
+            console.log(arr)
+            e.target[0].value = "",
+                e.target[1].value = "",
+                e.target[2].value = "",
+                e.target[3].value = ""
+            localStorage.setItem("user", JSON.stringify(arr));
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

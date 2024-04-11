@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .main{
+    display: flex;
+    justify-content: space-around;
+    gap:75px;
+    flex-wrap: wrap;
+
+  }
+  img{
+    width:230px;
+    height:250px;
+    display: flex;
+    border-radius: 5%;
+  }
+  img:hover{
+    width:210px;
+    height:230px;
+
+  }
+ body{
+  background: linear-gradient(to right, #584e5e, #504141, #6f665a);
+ }
+</style>
+
+<div class="main">   
+</div>
+
+<body>
+    
+
+
+
+
+    <script>
+        const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key':'8660c0c1e8mshf099fabe0b13207p18811djsnd19f1aaf125e',
+
+
+
+
+
+
+                'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+            }
+        };
+        let loop = [];
+        async function peddi() {
+            const response = await fetch(url, options);
+            const result = await response.json();
+            // console.log(result);
+            loop.push(result);
+            console.log(loop);
+            // console.log(loop[0][20]);
+            for (let i = 0; i<100; i++) {
+                // console.log(loop[i])                                                                                    
+                console.log(loop[0][i]['big_image']);
+                var ime = loop[0][i]['big_image'];
+                var king=document.getElementsByTagName("div")
+                var imagee=document.createElement("img")
+                imagee.setAttribute("src",ime)
+               
+                king[0].appendChild(imagee)
+
+            
+
+
+                
+                imagee.addEventListener("click", () => {
+                    window.location.assign("./hello.html");
+                    // let b=JSON.stringify(loop);
+                       window.localStorage.setItem("prashanth",JSON.stringify(loop[0][i]));
+                       
+                      
+                });
+
+              
+            }
+        }
+        peddi()
+        console.log(loop)
+        
+
+    </script>
+</body>
+
+</html>

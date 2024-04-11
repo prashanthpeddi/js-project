@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        display: none;
+    }
+    .main{
+        width:300px;
+        height:400px;
+        background-color: rgb(19, 18, 18);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10%;
+        opacity: 0.8;
+        margin-top: 100px;
+    }
+    .main:hover{
+        opacity: 1;
+    }
+    body{
+        background-image: url("https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .logo{
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 700px;
+    }
+    
+</style>
+<body>
+    <center>
+
+        <div class="logo"> 
+            <h2 style="color: blue;"> IMDb<img src="https://rapidapi-prod-apis.s3.amazonaws.com/24bca0bf-cb62-4b10-ad3a-505e1b28686c.png" width="35px"></h2>
+            <p style="margin-top: -20px;color: silver;">Top 100 <span style="color: orange;">Movies</span></p>
+        </div>
+    <div class="main">
+
+        
+        <form>
+            <input type="text" placeholder="username" required>
+            <br>
+            <span>check the login details</span>
+        
+            <br>
+            <input type="password" placeholder="password" required>
+            <br>
+            <span>wrong password</span>
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+    </center>
+    <script>
+        var d = document.forms;
+
+        d[0].addEventListener("submit", function(e) {
+            e.preventDefault();
+            var sign = localStorage.getItem("user") || "[]"; 
+            var pg = JSON.parse(sign);
+            console.log(pg);
+
+            var username = e.target[0].value;
+            var password = e.target[1].value;
+            var credentialsMatch = false;
+
+            for (let i = 0; i < pg.length; i++) {
+                let res = pg[i].user;
+                let pas = pg[i].pass;
+
+                if (username === res && password === pas) {
+                    credentialsMatch = true;
+                    break;
+                }
+            }
+
+            if (!credentialsMatch) {
+                let span = document.getElementsByTagName("span");
+                span[0].style.display = "inline";
+                span[0].style.color = "red";
+            } else {
+                window.location.assign("./new.html");
+            }
+
+            e.target[0].value = "";
+            e.target[1].value = "";
+        });
+    </script>
+    
+</body>
+</html>
